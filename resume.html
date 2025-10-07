@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resume - Aashish Solipuram</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Resume for Aashish Solipuram featuring education, experience, academic projects, and technical skills." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="page page-resume" data-page="resume">
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- Shared header keeps navigation consistent while script.js marks active page -->
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Aashish Solipuram Home">
+    <span class="logo">AS</span>
+    <span class="brand-text">Aashish Solipuram</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Resume layout mirrors print formatting inside a narrower column -->
+<main id="main" class="container narrow">
+  <header class="page-header">
+    <p class="page-kicker">Resume</p>
+    <h1>Resume</h1>
+    <p class="page-lead">Highlights from my academic journey, industry experience, and the tools I reach for most often.</p>
+  </header>
+
+  <!-- Core sections map directly to resume headings -->
+  <section>
+    <h2>Education</h2>
+    <div class="item">
+      <h3>Indiana University, Kelley School of Business &mdash; Bloomington, IN</h3>
+      <p class="meta">Master of Science in Information Systems &middot; GPA: 3.70/4.00 &middot; Dec 2026</p>
+      <p>Certificate in Business Foundations (Summer 2025): Strategy, Finance, Accounting, Operations, Marketing, Quantitative Methods.</p>
+    </div>
+    <div class="item">
+      <h3>BITS Pilani &mdash; Hyderabad, India</h3>
+      <p class="meta">B.E. Electronics and Instrumentation &middot; Minor in Computing and Intelligence &middot; May 2024</p>
+      <p>Relevant coursework: Data Structures &amp; Algorithms, OOP, AI/ML, Cryptography, Operating Systems.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="item">
+      <h3>Amazon &mdash; Bangalore, India</h3>
+      <p class="meta">Software Development Intern &middot; Jul 2023 &ndash; Dec 2023</p>
+      <ul>
+        <li>Raised service resilience scores via stress and chaos testing using AWS frameworks.</li>
+        <li>Implemented backend support for Hard Decline messaging with localized strings; validated via sandbox and integration tests.</li>
+        <li>Optimized socket configurations to reduce exception spikes from 30-40/day to 2-3/day.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>Crossbar Talent Management Solutions &mdash; Gurgaon, India</h3>
+      <p class="meta">Content Creator &middot; Jun 2022 &ndash; Jul 2022</p>
+      <ul>
+        <li>Built interactive learning modules and question banks on Tableau and cybersecurity.</li>
+        <li>Improved learner engagement through approachable technical content for early-career professionals.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Academic Projects</h2>
+    <div class="item">
+      <h3>Cryptography in Supply Chain</h3>
+      <p class="meta">Mar 2024 &ndash; Apr 2024</p>
+      <p>Blockchain-based traceability with HMAC validation to ensure secure transaction recording and product authenticity.</p>
+    </div>
+    <div class="item">
+      <h3>X (Twitter) Clone</h3>
+      <p class="meta">Jul 2024 &ndash; Oct 2024</p>
+      <p>Full-stack app with JWT auth, responsive layout, and real-time interactions (posts, follows, media uploads).</p>
+    </div>
+    <div class="item">
+      <h3>Messaging App</h3>
+      <p class="meta">Nov 2024 &ndash; Dec 2024</p>
+      <p>Socket.io-based real-time messaging with media uploads, custom profiles, and notification system.</p>
+    </div>
+  </section>
+
+  <!-- Skills list presented as chips for quick scanability -->
+  <section>
+    <h2>Technical Skills</h2>
+    <ul class="tag-list">
+      <li>Python</li><li>JavaScript</li><li>C++</li><li>Scala</li><li>Git</li>
+      <li>React</li><li>Express.js</li><li>PostgreSQL</li><li>AWS</li><li>HTML</li><li>CSS</li>
+    </ul>
+  </section>
+
+  <!-- Contact block stays within the resume for recruiters pulling only this page -->
+  <section>
+    <h2>Reach Out</h2>
+    <div class="resume-contact">
+      <span><strong>Email:</strong> <a href="mailto:aaresoli@iu.edu">aaresoli@iu.edu</a></span>
+      <span><strong>Phone:</strong> <a href="tel:+18127421957">+1 (812) 742-1957</a></span>
+      <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aashishreddy7" target="_blank" rel="noopener">/in/aashishreddy7</a></span>
+      <span><strong>GitHub:</strong> <a href="https://github.com/aaresoli" target="_blank" rel="noopener" aria-label="Aashish Solipuram on GitHub">github.com/aaresoli</a></span>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Aashish Solipuram. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

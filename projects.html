@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Projects - Aashish Solipuram</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Selected software projects by Aashish Solipuram, including blockchain traceability, social, and real-time messaging systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="page page-projects" data-page="projects">
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- Global header keeps navigation aligned with other pages -->
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Aashish Solipuram Home">
+    <span class="logo">AS</span>
+    <span class="brand-text">Aashish Solipuram</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="resume.html">Resume</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Portfolio grid showcases repo-backed work first -->
+<main id="main" class="container">
+  <header class="page-header">
+    <p class="page-kicker">Project Portfolio</p>
+    <h1>Projects</h1>
+    <p class="page-lead">A collection of systems where I've focused on stability, clear architecture, and a tight feedback loop between users and code.</p>
+  </header>
+
+  <section>
+    <h2>Highlighted Builds</h2>
+    <div class="project-grid">
+      <article id="twitter-clone" class="project-card">
+        <div class="media-frame">
+          <img src="images/proj-twitter.png" alt="Twitter clone project thumbnail" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <h3>X (Twitter) Clone</h3>
+          <p>Full-stack app with JWT authentication, responsive layout, and real-time interactions.</p>
+          <ul class="bullets">
+            <li>Post, follow, and media upload flows</li>
+            <li>Secure session handling with JWT</li>
+            <li>Optimized layout across devices</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/AashishReddy07/odin-book-frontend" target="_blank" rel="noopener" aria-label="View the Odin Book frontend repo on GitHub">Frontend repo</a>
+            <a class="btn secondary" href="https://github.com/AashishReddy07/odin-book-backend" target="_blank" rel="noopener" aria-label="View the Odin Book backend repo on GitHub">Backend repo</a>
+          </div>
+        </div>
+      </article>
+
+      <article id="messaging-app" class="project-card">
+        <div class="media-frame">
+          <img src="images/proj-messaging.png" alt="Messaging app project thumbnail" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <h3>Messaging App</h3>
+          <p>Socket.io real-time messaging with media support, custom profiles, and notifications.</p>
+          <ul class="bullets">
+            <li>Instant delivery and live updates</li>
+            <li>Secure auth with JWT</li>
+            <li>Scalable event-driven architecture</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/AashishReddy07/messaging-app-frontend" target="_blank" rel="noopener" aria-label="View the messaging app frontend repo on GitHub">Frontend repo</a>
+            <a class="btn secondary" href="https://github.com/AashishReddy07/messaging-app-backend" target="_blank" rel="noopener" aria-label="View the messaging app backend repo on GitHub">Backend repo</a>
+          </div>
+        </div>
+      </article>
+
+      <article id="cryptography" class="project-card">
+        <div class="media-frame">
+          <img src="images/proj-cryptography.jpg" alt="Cryptography supply chain project thumbnail" loading="lazy" />
+        </div>
+        <div class="project-body">
+          <h3>Cryptography in Supply Chain</h3>
+          <p>Blockchain-based solution for traceability with HMAC validation to secure transactions and verify authenticity.</p>
+          <ul class="bullets">
+            <li>Transparent, tamper-evident ledger for product flows</li>
+            <li>HMAC-based validation on transaction events</li>
+            <li>Improved trust and data integrity</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Aashish Solipuram. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
