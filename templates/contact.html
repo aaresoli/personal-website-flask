@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Contact - Aashish Solipuram</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="Get in touch with Aashish Solipuram for collaborations, opportunities, or questions about software projects." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-</head>
-<body class="page page-contact" data-page="contact">
-<a class="skip-link" href="#main">Skip to content</a>
-<!-- Header reused from layout to keep navigation consistent -->
-<header class="site-header">
-  <a class="brand" href="index.html" aria-label="Aashish Solipuram Home">
-    <span class="logo">AS</span>
-    <span class="brand-text">Aashish Solipuram</span>
-  </a>
-  <nav class="site-nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="resume.html">Resume</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-    <a class="nav-cta" href="https://github.com/aaresoli/personal-website" target="_blank" rel="noopener">GitHub Repo</a>
-  </nav>
-</header>
+{% extends "base.html" %}
 
-<!-- Contact page intentionally narrow so validation messages stay near inputs -->
+{% block title %}Contact - Aashish Solipuram{% endblock %}
+{% block meta_description %}Get in touch with Aashish Solipuram for collaborations, opportunities, or questions about software projects.{% endblock %}
+
+{% block content %}
 <main id="main" class="container narrow">
   <header class="page-header">
     <p class="page-kicker">Reach Out</p>
@@ -38,7 +11,6 @@
     <p class="page-lead">Prefer email? Reach me at <a href="mailto:aaresoli@iu.edu">aaresoli@iu.edu</a>. Otherwise, share a bit about your project or question below and I'll get back to you soon.</p>
   </header>
 
-  <!-- Provide alternate contact methods before the form -->
   <section>
     <h2>Direct Lines</h2>
     <ul class="contact-options">
@@ -60,28 +32,22 @@
           <a href="https://www.linkedin.com/in/aashishreddy7" target="_blank" rel="noopener">/in/aashishreddy7</a>
         </div>
       </li>
-      <li>
-        <div class="contact-info">
-          <span class="contact-title">GitHub</span>
-          <a href="https://github.com/aaresoli" target="_blank" rel="noopener">github.com/aaresoli</a>
-        </div>
-      </li>
     </ul>
   </section>
 
   <section>
     <h2>Send a Message</h2>
-    <!-- Form aligns with assignment requirements: semantic labels + validation hooks -->
-    <form id="contactForm" class="form" action="thankyou.html" method="post">
+    {# Flask endpoint handles POST, logs payload, then redirects to thank-you #}
+    <form id="contactForm" class="form" action="{{ url_for('contact') }}" method="post">
       <div class="grid-2">
         <div class="form-field">
           <label for="firstName">First name</label>
-          <input id="firstName" name="firstName" type="text" autocomplete="given-name" required pattern="^[A-Za-z]+(?:[\s'-][A-Za-z]+)*$" title="Use letters, spaces, apostrophes, or hyphens only." />
+          <input id="firstName" name="firstName" type="text" autocomplete="given-name" required pattern="^[A-Za-z]+(?:[\s'-][A-Za-z]+)*$" title="Use letters, spaces, apostrophes, or hyphens only.">
           <small class="error" aria-live="polite"></small>
         </div>
         <div class="form-field">
           <label for="lastName">Last name</label>
-          <input id="lastName" name="lastName" type="text" autocomplete="family-name" required pattern="^[A-Za-z]+(?:[\s'-][A-Za-z]+)*$" title="Use letters, spaces, apostrophes, or hyphens only." />
+          <input id="lastName" name="lastName" type="text" autocomplete="family-name" required pattern="^[A-Za-z]+(?:[\s'-][A-Za-z]+)*$" title="Use letters, spaces, apostrophes, or hyphens only.">
           <small class="error" aria-live="polite"></small>
         </div>
       </div>
@@ -89,7 +55,7 @@
       <div class="grid-2">
         <div class="form-field">
           <label for="email">Email address</label>
-          <input id="email" name="email" type="email" autocomplete="email" required />
+          <input id="email" name="email" type="email" autocomplete="email" required>
           <small class="error" aria-live="polite"></small>
         </div>
         <div class="form-field">
@@ -107,13 +73,13 @@
       <div class="grid-2">
         <div class="form-field">
           <label for="password">Password</label>
-          <input id="password" name="password" type="password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$" title="At least 8 characters with a mix of letters and numbers." />
+          <input id="password" name="password" type="password" required minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d).{8,}$" title="At least 8 characters with a mix of letters and numbers.">
           <small class="hint">At least 8 characters, include letters and numbers.</small>
           <small class="error" aria-live="polite"></small>
         </div>
         <div class="form-field">
           <label for="confirmPassword">Confirm password</label>
-          <input id="confirmPassword" name="confirmPassword" type="password" required minlength="8" />
+          <input id="confirmPassword" name="confirmPassword" type="password" required minlength="8">
           <small class="error" aria-live="polite"></small>
         </div>
       </div>
@@ -131,9 +97,4 @@
     </form>
   </section>
 </main>
-<footer class="site-footer">
-  <p>&copy; <span id="year"></span> Aashish Solipuram. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}

@@ -1,24 +1,22 @@
-# Aashish Personal Website
+# Aashish Personal Website (Flask)
 
-Multi-page, responsive, accessible website built for coursework.
+Multi-page, responsive, accessible website now delivered with Flask so the layout and routing are handled server-side.
 
 ## Highlights
-- Slate + indigo theme managed via CSS custom properties for easy retuning.
-- Project cards and resume content share modular components to stay consistent.
-- Contact form enforces HTML5 rules plus password confirmation, then routes to `thankyou.html` client-side for static hosting compatibility.
+- Flask routes render Jinja templates that extend a shared `base.html`, keeping navigation and metadata consistent.
+- Static assets live under `static/` for CSS, JS, and imagery while templates use `url_for` so links stay portable.
+- Contact form runs the existing HTML5 + JS validation and posts to the Flask endpoint, which logs the payload and redirects to the thank-you page.
 
 ## Structure
-- `index.html` — Home
-- `about.html` — About Me
-- `resume.html` — Resume (print-friendly)
-- `projects.html` — Projects
-- `contact.html` — Contact form (HTML5 validation + JS password match)
-- `thankyou.html` — Redirect target after successful submit
-- `styles.css` — Shared styling
-- `script.js` — Nav highlighting, form validation
-- `images/` — Placeholder assets
+- `app.py` — Flask entrypoint and route definitions
+- `templates/` — Jinja templates (`base.html`, `index.html`, `about.html`, `resume.html`, `projects.html`, `contact.html`, `thankyou.html`)
+- `static/css/style.css` — Shared styling
+- `static/js/script.js` — Nav highlighting, form validation
+- `static/images/` — Site imagery
 - `.prompt/dev_notes.md` — AI prompts & reflection per assignment
 
-## How to run
-Open `index.html` in any browser. No build step required.  
-The contact form validates locally and then redirects to `thankyou.html`, so no backend is necessary.
+## Setup & Run
+1. `source venv/bin/activate` (or create your own venv and `pip install -r requirements.txt` if you prefer a fresh environment)
+2. `python app.py`
+
+Visit `http://127.0.0.1:5000/` in your browser. The contact form submission will log to the Flask console and redirect to `/thank-you`.

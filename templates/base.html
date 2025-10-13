@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Aashish Solipuram - Personal Site{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="{% block meta_description %}Personal website for Aashish Solipuram: MSIS at Indiana University, software projects, resume, and contact.{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script defer src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+{% set current_endpoint = request.endpoint %}
+{% set current_page = page|default('home') %} {# Page slug used by both layout classes and JS for active nav #}
+<body class="page page-{{ current_page }}" data-page="{{ current_page }}">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="{{ url_for('home') }}" aria-label="Aashish Solipuram Home">
+    <span class="logo">AS</span>
+    <span class="brand-text">Aashish Solipuram</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary">
+    <a href="{{ url_for('home') }}" data-page="home" {% if current_endpoint == 'home' %}aria-current="page"{% endif %}>Home</a>
+    <a href="{{ url_for('about') }}" data-page="about" {% if current_endpoint == 'about' %}aria-current="page"{% endif %}>About</a>
+    <a href="{{ url_for('resume') }}" data-page="resume" {% if current_endpoint == 'resume' %}aria-current="page"{% endif %}>Resume</a>
+    <a href="{{ url_for('projects') }}" data-page="projects" {% if current_endpoint == 'projects' %}aria-current="page"{% endif %}>Projects</a>
+    <a href="{{ url_for('contact') }}" data-page="contact" {% if current_endpoint == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+  </nav>
+</header>
+{% block content %}{% endblock %}
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Aashish Solipuram. All rights reserved.</p>
+</footer>
+</body>
+</html>

@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Resume - Aashish Solipuram</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="Resume for Aashish Solipuram featuring education, experience, academic projects, and technical skills." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-</head>
-<body class="page page-resume" data-page="resume">
-<a class="skip-link" href="#main">Skip to content</a>
-<!-- Shared header keeps navigation consistent while script.js marks active page -->
-<header class="site-header">
-  <a class="brand" href="index.html" aria-label="Aashish Solipuram Home">
-    <span class="logo">AS</span>
-    <span class="brand-text">Aashish Solipuram</span>
-  </a>
-  <nav class="site-nav" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="resume.html">Resume</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-    <a class="nav-cta" href="https://github.com/aaresoli/personal-website" target="_blank" rel="noopener">GitHub Repo</a>
-  </nav>
-</header>
+{% extends "base.html" %}
 
-<!-- Resume layout mirrors print formatting inside a narrower column -->
+{% block title %}Resume - Aashish Solipuram{% endblock %}
+{% block meta_description %}Resume for Aashish Solipuram featuring education, experience, academic projects, and technical skills.{% endblock %}
+
+{% block content %}
 <main id="main" class="container narrow">
   <header class="page-header">
     <p class="page-kicker">Resume</p>
@@ -38,7 +11,6 @@
     <p class="page-lead">Highlights from my academic journey, industry experience, and the tools I reach for most often.</p>
   </header>
 
-  <!-- Core sections map directly to resume headings -->
   <section>
     <h2>Education</h2>
     <div class="item">
@@ -93,7 +65,6 @@
     </div>
   </section>
 
-  <!-- Skills list presented as chips for quick scanability -->
   <section>
     <h2>Technical Skills</h2>
     <ul class="tag-list">
@@ -102,20 +73,13 @@
     </ul>
   </section>
 
-  <!-- Contact block stays within the resume for recruiters pulling only this page -->
   <section>
     <h2>Reach Out</h2>
     <div class="resume-contact">
       <span><strong>Email:</strong> <a href="mailto:aaresoli@iu.edu">aaresoli@iu.edu</a></span>
       <span><strong>Phone:</strong> <a href="tel:+18127421957">+1 (812) 742-1957</a></span>
       <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aashishreddy7" target="_blank" rel="noopener">/in/aashishreddy7</a></span>
-      <span><strong>GitHub:</strong> <a href="https://github.com/aaresoli" target="_blank" rel="noopener" aria-label="Aashish Solipuram on GitHub">github.com/aaresoli</a></span>
     </div>
   </section>
 </main>
-<footer class="site-footer">
-  <p>&copy; <span id="year"></span> Aashish Solipuram. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}

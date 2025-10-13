@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Aashish Solipuram - Personal Site{% endblock %}
+
+{% block content %}
+<main id="main" class="container">
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-kicker">MSIS @ Kelley School of Business</p>
+      <h1>Hi, I'm Aashish.</h1>
+      <p class="lead">MSIS candidate at Indiana University who loves solving business problems using technology and bringing value to the businesses.</p>
+      <div class="cta-row">
+        <a class="btn" href="{{ url_for('projects') }}">See my projects</a>
+        <a class="btn secondary" href="{{ url_for('resume') }}">View my resume</a>
+      </div>
+      <ul class="quick-facts">
+        <li><span class="label">Interests</span><span>Tech consulting, Software Development, Cybersecurity</span></li>
+        <li><span class="label">Previously</span><span>SDE Intern @ Amazon</span></li>
+        <li><span class="label">Tech</span><span>Python, Java, JavaScript, C++, React, Express, PostgreSQL, AWS, Scala</span></li>
+      </ul>
+    </div>
+    <div class="hero-media">
+      <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Stylized profile illustration of Aashish" loading="lazy">
+    </div>
+  </section>
+
+  <section class="cards">
+    <article class="card">
+      <h2>Featured: X (Twitter) Clone</h2>
+      <div class="media-frame">
+        <img src="{{ url_for('static', filename='images/proj-twitter.png') }}" alt="Twitter clone project thumbnail" loading="lazy">
+      </div>
+      <p>Secure auth with JWT, responsive UI, and real-time interactions for posts, follows, and media.</p>
+      <a class="card-link" href="{{ url_for('projects') }}#twitter-clone">Read more</a>
+    </article>
+    <article class="card">
+      <h2>Featured: Messaging App</h2>
+      <div class="media-frame">
+        <img src="{{ url_for('static', filename='images/proj-messaging.png') }}" alt="Messaging app project thumbnail" loading="lazy">
+      </div>
+      <p>Socket.io real-time messaging, media support, and notifications with robust authentication.</p>
+      <a class="card-link" href="{{ url_for('projects') }}#messaging-app">Read more</a>
+    </article>
+    <article class="card">
+      <h2>Featured: Cryptography in Supply Chain</h2>
+      <div class="media-frame">
+        <img src="{{ url_for('static', filename='images/proj-cryptography.jpg') }}" alt="Cryptography project thumbnail" loading="lazy">
+      </div>
+      <p>Blockchain-based traceability with HMAC validation to improve authenticity and integrity across the network.</p>
+      <a class="card-link" href="{{ url_for('projects') }}#cryptography">Read more</a>
+    </article>
+  </section>
+</main>
+{% endblock %}

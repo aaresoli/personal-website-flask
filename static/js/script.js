@@ -12,37 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1) ACTIVE NAV & FOOTER YEAR
   // -----------------------------
   (function setActiveNavAndYear() {
-    const pageMap = {
-      home: 'index.html',
-      about: 'about.html',
-      resume: 'resume.html',
-      projects: 'projects.html',
-      contact: 'contact.html',
-      thankyou: 'thankyou.html'
-    };
+    const currentPage = document.body?.dataset?.page;
 
-    // Mark current page in the primary nav
-    const current = (() => {
-      const datasetPage = document.body?.dataset?.page;
-      if (datasetPage && pageMap[datasetPage]) {
-        return pageMap[datasetPage];
-      }
-
-      // Strip query/hash; default to index.html
-      const file = location.pathname.split('/').pop();
-      return file && file.trim() !== '' ? file : 'index.html';
-    })();
-
-    document.querySelectorAll('.site-nav a[href]').forEach(a => {
-      const hrefFile = (a.getAttribute('href') || '').split('/').pop();
-      if (hrefFile === current) {
+    document.querySelectorAll('.site-nav a[data-page]').forEach(a => {
+      if (currentPage && a.dataset.page === currentPage) {
         a.setAttribute('aria-current', 'page');
       } else {
         a.removeAttribute('aria-current');
       }
     });
 
-    // Footer © year
     const y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
   })();
@@ -147,16 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ok) {
       e.preventDefault();
 
-      // Focus/scroll to first invalid field for accessibility
       const firstInvalid = form.querySelector('[aria-invalid="true"]');
       if (firstInvalid && typeof firstInvalid.focus === 'function') {
         firstInvalid.focus({ preventScroll: false });
       }
-      return;
     }
-
-    // Static hosting can't process POSTs; simulate success client-side.
-    e.preventDefault();
-    window.location.assign('thankyou.html');
   });
 });
