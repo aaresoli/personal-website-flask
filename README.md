@@ -5,7 +5,7 @@ Multi-page, responsive, accessible website delivered with Flask. Content now com
 ## Highlights
 - `DAL.py` bootstraps the `projects.db` database and provides helpers to fetch/insert project rows.
 - `/projects` renders a responsive HTML table backed by live database data (Title, Description, Image, optional repo/demo links).
-- `/contact` has been repurposed as an “Add Project” form: submitting new records writes straight to SQLite and they appear on the projects page immediately.
+- `/contact` works as an “Add Project” form: uploading a title/description/image saves the file to `static/images/`, writes the record to SQLite, and the project appears instantly.
 - Navigation includes a GitHub CTA that points at the Flask repo (`personal-website-flask`).
 - Static assets stay under `static/` while Jinja templates extend `templates/base.html` to keep shared layout and metadata consistent.
 
@@ -32,4 +32,4 @@ Multi-page, responsive, accessible website delivered with Flask. Content now com
    python app.py
    ```
 
-Visit `http://127.0.0.1:5000/` in your browser. To add a new project, drop the image into `static/images/`, submit the form on `/contact`, and confirm the entry appears under `/projects`.
+Visit `http://127.0.0.1:5000/` in your browser. To add a new project, fill out the form on `/contact`, upload an image (PNG/JPG/GIF/SVG/WebP), and confirm it appears under `/projects` right away—no manual file moves required.
