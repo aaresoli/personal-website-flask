@@ -44,7 +44,15 @@ def fetch_projects() -> Iterable[Mapping[str, object]]:
     with get_connection() as conn:
         cursor = conn.execute(
             "SELECT id, title, description, image_file_name, repo_url, demo_url "
-            "FROM projects ORDER BY created_at DESC, id DESC"
+            "FROM projects "
+            "ORDER BY "
+            "CASE title "
+            "  WHEN 'X (Twitter) Clone' THEN 0 "
+            "  WHEN 'Messaging App' THEN 1 "
+            "  WHEN 'Cryptography in Supply Chain' THEN 2 "
+            "  ELSE 3 "
+            "END, "
+            "created_at DESC, id DESC"
         )
         return cursor.fetchall()
 
