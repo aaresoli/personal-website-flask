@@ -1,22 +1,35 @@
 # Aashish Personal Website (Flask)
 
-Multi-page, responsive, accessible website now delivered with Flask so the layout and routing are handled server-side.
+Multi-page, responsive, accessible website delivered with Flask. Content now comes from a lightweight SQLite layer so projects can be added without editing templates.
 
 ## Highlights
-- Flask routes render Jinja templates that extend a shared `base.html`, keeping navigation and metadata consistent.
-- Static assets live under `static/` for CSS, JS, and imagery while templates use `url_for` so links stay portable.
-- Contact form runs the existing HTML5 + JS validation and posts to the Flask endpoint, which logs the payload and redirects to the thank-you page.
+- `DAL.py` bootstraps the `projects.db` database and provides helpers to fetch/insert project rows.
+- `/projects` renders a responsive HTML table backed by live database data (Title, Description, Image, optional repo/demo links).
+- `/contact` has been repurposed as an “Add Project” form: submitting new records writes straight to SQLite and they appear on the projects page immediately.
+- Navigation includes a GitHub CTA that points at the Flask repo (`personal-website-flask`).
+- Static assets stay under `static/` while Jinja templates extend `templates/base.html` to keep shared layout and metadata consistent.
 
 ## Structure
-- `app.py` — Flask entrypoint and route definitions
-- `templates/` — Jinja templates (`base.html`, `index.html`, `about.html`, `resume.html`, `projects.html`, `contact.html`, `thankyou.html`)
-- `static/css/style.css` — Shared styling
-- `static/js/script.js` — Nav highlighting, form validation
-- `static/images/` — Site imagery
-- `.prompt/dev_notes.md` — AI prompts & reflection per assignment
+- `app.py` — Flask entrypoint, route definitions, and DAL integration.
+- `DAL.py` — Data access layer for SQLite (`projects.db`).
+- `projects.db` — SQLite database seeded with three sample projects.
+- `templates/` — Jinja templates (`base.html`, `index.html`, `about.html`, `resume.html`, `projects.html`, `contact.html`, `thankyou.html`).
+- `static/css/style.css` — Shared styling (includes project table + alert styles).
+- `static/js/script.js` — Nav highlighting and client-side validation helpers.
+- `static/images/` — Site imagery used in the project table.
+- `.prompt/dev_notes.md` — AI prompts log & reflections.
 
 ## Setup & Run
-1. `source venv/bin/activate` (or create your own venv and `pip install -r requirements.txt` if you prefer a fresh environment)
-2. `python app.py`
+1. Create/activate a virtual environment (recommended to avoid Debian’s externally-managed guard):
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+   ```
+2. Launch the app:
+   ```bash
+   python app.py
+   ```
 
-Visit `http://127.0.0.1:5000/` in your browser. The contact form submission will log to the Flask console and redirect to `/thank-you`.
+Visit `http://127.0.0.1:5000/` in your browser. To add a new project, drop the image into `static/images/`, submit the form on `/contact`, and confirm the entry appears under `/projects`.
