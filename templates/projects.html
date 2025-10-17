@@ -1,72 +1,63 @@
 {% extends "base.html" %}
 
 {% block title %}Projects - Aashish Solipuram{% endblock %}
-{% block meta_description %}Selected software projects by Aashish Solipuram, including blockchain traceability, social, and real-time messaging systems.{% endblock %}
+{% block meta_description %}Selected software projects by Aashish Solipuram showcased with descriptions and visuals pulled from a live project database.{% endblock %}
 
 {% block content %}
 <main id="main" class="container">
   <header class="page-header">
     <p class="page-kicker">Project Portfolio</p>
     <h1>Projects</h1>
-    <p class="page-lead">A collection of systems where I've focused on stability, clear architecture, and a tight feedback loop between users and code.</p>
+    <p class="page-lead">
+      Listings below are managed from the site database; add a new entry from the form page and it appears here instantly.
+    </p>
   </header>
 
-  <section>
-    <h2>Highlighted Builds</h2>
-    <div class="project-grid">
-      <article id="twitter-clone" class="project-card">
-        <div class="media-frame">
-          <img src="{{ url_for('static', filename='images/proj-twitter.png') }}" alt="Twitter clone project thumbnail" loading="lazy">
-        </div>
-        <div class="project-body">
-          <h3>X (Twitter) Clone</h3>
-          <p>Full-stack app with JWT authentication, responsive layout, and real-time interactions.</p>
-          <ul class="bullets">
-            <li>Post, follow, and media upload flows</li>
-            <li>Secure session handling with JWT</li>
-            <li>Optimized layout across devices</li>
-          </ul>
-          <div class="project-links">
-            <a class="btn" href="https://github.com/AashishReddy07/odin-book-frontend" target="_blank" rel="noopener" aria-label="View the Odin Book frontend repo on GitHub">Frontend repo</a>
-            <a class="btn secondary" href="https://github.com/AashishReddy07/odin-book-backend" target="_blank" rel="noopener" aria-label="View the Odin Book backend repo on GitHub">Backend repo</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="messaging-app" class="project-card">
-        <div class="media-frame">
-          <img src="{{ url_for('static', filename='images/proj-messaging.png') }}" alt="Messaging app project thumbnail" loading="lazy">
-        </div>
-        <div class="project-body">
-          <h3>Messaging App</h3>
-          <p>Socket.io real-time messaging with media support, custom profiles, and notifications.</p>
-          <ul class="bullets">
-            <li>Instant delivery and live updates</li>
-            <li>Secure auth with JWT</li>
-            <li>Scalable event-driven architecture</li>
-          </ul>
-          <div class="project-links">
-            <a class="btn" href="https://github.com/AashishReddy07/messaging-app-frontend" target="_blank" rel="noopener" aria-label="View the messaging app frontend repo on GitHub">Frontend repo</a>
-            <a class="btn secondary" href="https://github.com/AashishReddy07/messaging-app-backend" target="_blank" rel="noopener" aria-label="View the messaging app backend repo on GitHub">Backend repo</a>
-          </div>
-        </div>
-      </article>
-
-      <article id="cryptography" class="project-card">
-        <div class="media-frame">
-          <img src="{{ url_for('static', filename='images/proj-cryptography.jpg') }}" alt="Cryptography supply chain project thumbnail" loading="lazy">
-        </div>
-        <div class="project-body">
-          <h3>Cryptography in Supply Chain</h3>
-          <p>Blockchain-based solution for traceability with HMAC validation to secure transactions and verify authenticity.</p>
-          <ul class="bullets">
-            <li>Transparent, tamper-evident ledger for product flows</li>
-            <li>HMAC-based validation on transaction events</li>
-            <li>Improved trust and data integrity</li>
-          </ul>
-        </div>
-      </article>
+  <section aria-live="polite">
+    {% if projects %}
+    <div class="table-responsive">
+      <table class="projects-table">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for project in projects %}
+          <tr>
+            <td data-label="Image">
+              <img
+                src="{{ url_for('static', filename='images/' ~ project['image_file_name']) }}"
+                alt="{{ project['title'] }} thumbnail"
+                loading="lazy"
+                width="180"
+              >
+            </td>
+            <td data-label="Title">
+              <strong>{{ project['title'] }}</strong>
+            </td>
+            <td data-label="Description">
+              <p>{{ project['description'] }}</p>
+            </td>
+            <td data-label="Links">
+              {% if project['repo_url'] %}
+              <a class="btn secondary" href="{{ project['repo_url'] }}" target="_blank" rel="noopener">Repository</a>
+              {% endif %}
+              {% if project['demo_url'] %}
+              <a class="btn" href="{{ project['demo_url'] }}" target="_blank" rel="noopener">Live demo</a>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
+    {% else %}
+    <p>No projects are saved yet. Add your first project from the form page.</p>
+    {% endif %}
   </section>
 </main>
 {% endblock %}
