@@ -36,12 +36,12 @@
       </div>
       <div class="grid-2">
         <div class="form-field">
-          <label for="repo_url">Repository URL (optional)</label>
-          <input id="repo_url" name="repo_url" type="url" placeholder="https://github.com/..." value="{{ form_data.get('repo_url', '') }}">
+          <label for="repo_url">Frontend repo URL (optional)</label>
+          <input id="repo_url" name="repo_url" type="url" placeholder="https://github.com/...-frontend" value="{{ form_data.get('repo_url', '') }}">
         </div>
         <div class="form-field">
-          <label for="demo_url">Demo URL (optional)</label>
-          <input id="demo_url" name="demo_url" type="url" placeholder="https://example.com" value="{{ form_data.get('demo_url', '') }}">
+          <label for="demo_url">Backend repo URL (optional)</label>
+          <input id="demo_url" name="demo_url" type="url" placeholder="https://github.com/...-backend" value="{{ form_data.get('demo_url', '') }}">
         </div>
       </div>
       <div class="form-actions">
