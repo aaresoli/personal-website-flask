@@ -26,8 +26,8 @@
     <a href="{{ url_for('about') }}" data-page="about" {% if current_endpoint == 'about' %}aria-current="page"{% endif %}>About</a>
     <a href="{{ url_for('resume') }}" data-page="resume" {% if current_endpoint == 'resume' %}aria-current="page"{% endif %}>Resume</a>
     <a href="{{ url_for('projects') }}" data-page="projects" {% if current_endpoint == 'projects' %}aria-current="page"{% endif %}>Projects</a>
-    <a href="{{ url_for('contact') }}" data-page="contact" {% if current_endpoint == 'contact' %}aria-current="page"{% endif %}>Contact</a>
     <a href="{{ url_for('new_project') }}" data-page="add_project" {% if current_endpoint == 'new_project' %}aria-current="page"{% endif %}>Add Project</a>
+    <a href="{{ url_for('contact') }}" data-page="contact" {% if current_endpoint == 'contact' %}aria-current="page"{% endif %}>Contact</a>
     <a class="nav-cta" href="https://github.com/aaresoli/personal-website-flask" target="_blank" rel="noopener">GitHub Repo</a>
   </nav>
 </header>
