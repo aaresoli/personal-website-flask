@@ -49,8 +49,8 @@ def projects():
     return render_template("projects.html", page="projects", projects=project_rows)
 
 
-@app.route("/contact", methods=["GET", "POST"])
-def contact():
+@app.route("/projects/new", methods=["GET", "POST"])
+def new_project():
     """Render the project submission form and persist new projects."""
     form_error = None
     form_data = {}
@@ -98,11 +98,21 @@ def contact():
             return redirect(url_for("projects"))
 
     return render_template(
-        "contact.html",
-        page="contact",
+        "add_project.html",
+        page="add_project",
         form_error=form_error,
         form_data=form_data,
     )
+
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    """Render the contact form and log submissions before redirecting to thanks."""
+    if request.method == "POST":
+        app.logger.info("Contact submission: %s", dict(request.form))
+        return redirect(url_for("thankyou"))
+
+    return render_template("contact.html", page="contact")
 
 
 @app.route("/thank-you")
