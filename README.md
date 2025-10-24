@@ -33,3 +33,22 @@ Multi-page, responsive, accessible website delivered with Flask. Content now com
    ```
 
 Visit `http://127.0.0.1:5000/` in your browser. Reach out via `/contact`, or add a new project from `/projects/new` by uploading an image (PNG/JPG/GIF/SVG/WebP) and confirming it appears under `/projects` right away—no manual file moves required.
+
+## Containerized Deployment
+Build the Docker image (from the project root):
+```bash
+docker build -t aidd-flask .
+```
+
+Run the container and publish port 5000:
+```bash
+docker run --rm -p 5000:5000 aidd-flask
+```
+
+Uploaded images and SQLite data live inside the container by default. To persist them between runs, mount the project database (and optionally the `static/images/` directory) as volumes:
+```bash
+docker run --rm -p 5000:5000 \
+  -v "$(pwd)/projects.db:/app/projects.db" \
+  -v "$(pwd)/static/images:/app/static/images" \
+  aidd-flask
+```
